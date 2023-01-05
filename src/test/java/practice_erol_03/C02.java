@@ -1,4 +1,4 @@
-package practice_erol_erol;
+package practice_erol_03;
 
 import org.junit.Test;
 import org.openqa.selenium.By;

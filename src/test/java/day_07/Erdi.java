@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
 
@@ -17,25 +18,49 @@ public class Erdi extends TestBase {
     @Test
     public void test01() throws InterruptedException {
 
-        // https://www.jqueryscript.net/demo/Easy-iFrame-based-Twitter-Emoji-Picker-Plugin-jQuery-Emoojis/ sitesine gidin
-        driver.get("https://www.jqueryscript.net/demo/Easy-iFrame-based-Twitter-Emoji-Picker-Plugin-jQuery-Emoojis/");
-        // ikinci emojiye tıklayın
-        WebElement ıframe = driver.findElement(By.xpath("//*[@id='emoojis']"));
-        driver.switchTo().frame(ıframe);
-        driver.findElement(By.xpath("(//*[@class='mdl-tabs__ripple-container mdl-js-ripple-effect'])[2]")).click();
-        // tüm ikinci emoji öğelerini tıklayın
+        // https://the-internet.herokuapp.com/iframe adresine gidiniz
+        driver.get("https://the-internet.herokuapp.com/iframe");
+        // An iFrame conteining... başlığının altındaki Text Box’a “Techproeducation” yazin.
+        WebElement iframe=driver.findElement(By.xpath("//*[@id='mce_0_ifr']"));
+        driver.switchTo().frame(iframe);
+        WebElement textbox=driver.findElement(By.xpath("//*[@id='tinymce']"));
+        textbox.clear();
+        textbox.sendKeys("Techproeducation");
+        // TextBox’in altinda bulunan “Elemental Selenium” linkinin gorunur oldugunu test edin
+        driver.switchTo().defaultContent();
+       Assert.assertTrue(driver.findElement(By.xpath("//*[.='Elemental Selenium']")).isDisplayed());
+        // Elemental Selenium linkine tıklayın
+        driver.findElement(By.xpath("//*[.='Elemental Selenium']")).click();
+        List<String> windowHandles=new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(windowHandles.get(1));
+        /*
+        Set<String> windowHandleseti= driver.getWindowHandles();
+        System.out.println(windowHandleseti);
+        String ikinciSayfaWindowHandleDegeri="";
+        for (String each: windowHandleseti) {
+            if (!each.equals(ilkSayfaWindowHandleDegeri)){
+                ikinciSayfaWindowHandleDegeri=each;
+            }
+        }
+         */
+        // Açılan sayfada sayfa başlığını yazdırınız
+        System.out.println("elemental selenium sayfa basliği="+driver.getTitle());
 
-        //for (WebElement w:emojiler) {
-        //    w.click();
-        //}
-        // parent iframe e geri donun
+        // Elemental Selenium başlığı altındaki "Source Labs" linkinin gorunur olduğunu test edin
+        Assert.assertTrue(driver.findElement(By.xpath("//*[.='Sauce Labs']")).isDisplayed());
 
-        //driver.navigate().refresh();
-        // formu doldurun,(Formu istediğiniz metinlerle doldurun)
-        //driver.findElement(By.xpath("//*[@id='text']")).sendKeys("Erol", Keys.TAB,"Evren");
+        // Source labs linkine tıklayın
+        driver.findElement(By.xpath("//*[.='Sauce Labs']")).click();
+        System.out.println("--------------------------------------------------");
 
+        // Açılan sayfada sayfa başlığını yazdırınız
+        List<String>windowHandles2=new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window(windowHandles2.get(2));
+        System.out.println("acılan sayfanın baslığı="+driver.getTitle());
 
-        //  apply button a basin
+        // ilk sekmeye geri dönelim ve url'ini yazdıralım
+
+        // ilk sekmeyi kapatalım
 
 
     }
