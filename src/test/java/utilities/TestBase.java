@@ -31,7 +31,8 @@ public abstract class TestBase {
     //    tearDown
     @After
     public void tearDown(){
-       // driver.quit();
+        waitFor(5);
+        driver.quit();
     }
     //    MULTIPLE WINDOW
     //    1 parametre alir : Gecis Yapmak Istedigim sayfanin Title
