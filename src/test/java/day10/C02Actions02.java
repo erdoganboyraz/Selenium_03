@@ -24,7 +24,7 @@ public class C02Actions02 extends TestBase {
         waitFor(3);
 //        Acilan pencerede Account linkine tikla
         driver.findElement(By.linkText("Account")).click();
-//        Acilan sayfanin title inin Your Account icerdigini dogrula
+////        Acilan sayfanin title inin Your Account icerdigini dogrula
         Assert.assertTrue(driver.getTitle().contains("Your Account"));
     }
 }
