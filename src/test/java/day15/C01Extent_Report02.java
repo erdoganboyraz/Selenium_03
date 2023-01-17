@@ -30,7 +30,8 @@ public class C01Extent_Report02 extends TestBase {/*
     Extent reports
     Extent Html Reporter.  ====>>>>>>> are user for generation the reports
     Extent Tess
-    Bu sınıflar yardımıyla, platform, browser, environment, tester, takim bilgileri gibi özel proje bilgileri ekleyebilirim. Ayrıca extent test objesi kullanarak pass, fail, skip gibi loglamalar yapabilirim.
+    Bu sınıflar yardımıyla, platform, browser, environment, tester, takim bilgileri gibi özel proje bilgileri ekleyebilirim.
+     Ayrıca extent test objesi kullanarak pass, fail, skip gibi loglamalar yapabilirim.
     Dependency lerini nerden alıyorsun?
     Şirkette internal bir repository miz var. Bu repodan ihtiyacım olacak dependencyi alıp kullanırım.
     Dependency sirket reposunda yoksa ne yapılır?
