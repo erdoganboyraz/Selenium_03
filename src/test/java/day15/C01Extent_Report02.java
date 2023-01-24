@@ -41,7 +41,7 @@ public class C01Extent_Report02 extends TestBase {/*
     //    HATIRLAMAMIZ GEREKEN 3 CLASS
     protected static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;
-    protected static ExtentTest extentTest;
+    public static ExtentTest extentTest;
     @BeforeClass
     public static void extentReportsSetUp(){
 //      REPORT  PATH
